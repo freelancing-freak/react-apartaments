@@ -34,6 +34,11 @@ export const Icon = styled(Link)`
   font-weight: 700;
   font-size: 32px;
 
+  &:hover {
+    color: #000;
+    transition: 0.3s ease-in-out;
+  }
+
   @media screen and (max-width: 480px) {
     margin-left: 16px;
     margin-top: 8px;
