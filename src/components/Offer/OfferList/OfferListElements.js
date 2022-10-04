@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Container} from "react-bootstrap";
+import {Col, Container} from "react-bootstrap";
 
 export const OfferContainer = styled(Container)`
   margin-top: 80px;
@@ -13,6 +13,12 @@ export const OfferContainer = styled(Container)`
     grid-template-columns: auto;
     grid-gap: 20px;
   }
+`;
+
+export const OfferCol = styled(Col)`
+  background-color: #f7f7f7;
+  padding: 10px;
+  border-radius: 15px;
 `;
 
 export const OfferColImg = styled.img`
@@ -39,23 +45,10 @@ export const OfferColFooter = styled.footer`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  i {
-    font-size: 20px;
-  }
+  margin-top: 15px;
 
   .price {
     color: #01bf71;
-  }
-
-  a {
-    cursor: pointer;
-    color: black;
-  }
-
-  a:hover {
-    color: #01bf71;
-    transition: 0.3s ease-in-out;
   }
 
   h6 {
