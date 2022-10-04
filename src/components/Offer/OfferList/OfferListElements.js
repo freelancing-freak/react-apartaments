@@ -28,20 +28,39 @@ export const OfferColHeader = styled.header`
   margin: 1rem 0 1rem 0;
   align-items: center;
   height: 50px;
-  
+
   h6 {
     text-transform: uppercase;
   }
 `;
 
 export const OfferColFooter = styled.footer`
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  p:first-child span {
-    color: rgba(0, 0, 0, 0.26);
+  i {
+    font-size: 20px;
+  }
+
+  .price {
+    color: #01bf71;
+  }
+
+  a {
+    cursor: pointer;
+    color: black;
+  }
+
+  a:hover {
+    color: #01bf71;
+    transition: 0.3s ease-in-out;
+  }
+
+  h6 {
+    color: rgba(0, 0, 0, 0.55);
     font-weight: 600;
+    text-transform: uppercase;
   }
 `;

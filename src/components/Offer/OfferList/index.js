@@ -6,17 +6,21 @@ const OfferList = ({list}) => (
     <OfferContainer>
         {list.map((item) => (
             <Col>
-                <OfferColImg src={item.coverSrc} alt=''/>
+                <OfferColImg src={item.img} alt=''/>
                 <OfferColHeader>
                     <h6>{item.title}</h6>
                 </OfferColHeader>
                 <OfferColFooter>
                     <p>
-                        <b>{item.serviceTime}</b> <span> Delivery Fee ${item.deliveryFee}</span>
+                        <a href='#'>
+                            <i className="fa fa-map-marker"/>
+                            <b>&nbsp;{item.location.title}</b>
+                        </a>
                     </p>
-                    <p>
-                        <b>€{item.price}</b>
-                    </p>
+                </OfferColFooter>
+                <OfferColFooter>
+                    <h6>{item.measurement} M<sup>2</sup>,&nbsp;{item.numberOfRooms} pokoje</h6>
+                    <h6 className='price'>{item.price}<span> €</span></h6>
                 </OfferColFooter>
             </Col>
         ))}
