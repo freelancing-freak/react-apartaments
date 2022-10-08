@@ -46,7 +46,7 @@ const Navbar = ({toggle}) => {
                             <NavItem>
                                 <NavLinks to='offer'
                                           smooth={true}
-                                          duration={500}
+                                          duration={50}
                                           spy={true}
                                           exact='true'
                                           offset={-80}>Oferta</NavLinks>

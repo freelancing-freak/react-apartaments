@@ -10,10 +10,10 @@ const OfferSection = ({id}) => {
     const [currentPage, setCurrentPage] = useState(0);
     const [totalElements, setTotalElements] = useState([]);
     const [totalPages, setTotalPages] = useState([]);
-    const [pageSize] = useState(12);
+    const [pageSize] = useState(6);
 
     useEffect(() => {
-        fetchApartments(currentPage)
+        fetchApartments(currentPage).catch((error) => console.log(error))
     }, []);
 
     const fetchApartments = async (page) => {
@@ -29,14 +29,16 @@ const OfferSection = ({id}) => {
 
     const paginate = pageNumber => {
         setCurrentPage(pageNumber);
-        fetchApartments(pageNumber);
+        fetchApartments(pageNumber)
+            .then(() => window.scrollTo({top: 750, behavior: 'instant'}))
+            .catch((error) => console.log(error))
     }
 
     return (
         <div id={id}>
             <div>
                 <OfferList apartments={apartments} loading={loading}/>
-                <Pagination totalPages={totalPages} paginate={paginate}/>
+                <Pagination totalPages={totalPages} currentPage={currentPage} paginate={paginate}/>
             </div>
         </div>
     );
