@@ -19,6 +19,13 @@ export const OfferCol = styled(Col)`
   background-color: #f7f7f7;
   padding: 10px;
   border-radius: 15px;
+  
+  &:hover {
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.1);
+    z-index: 3;
+    cursor: pointer;
+  }
 `;
 
 export const OfferColImg = styled.img`

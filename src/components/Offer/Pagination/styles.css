@@ -6,7 +6,6 @@
     font-family: 'Poppins', sans-serif;
     display: inline-flex;
     position: relative;
-    margin-bottom: 80px;
 }
 
 .pagination li a.page-link {

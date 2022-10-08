@@ -30,15 +30,20 @@ const OfferSection = ({id}) => {
     const paginate = pageNumber => {
         setCurrentPage(pageNumber);
         fetchApartments(pageNumber)
-            .then(() => window.scrollTo({top: 750, behavior: 'instant'}))
+            .then(() => window.scrollTo({top: 780, behavior: 'instant'}))
             .catch((error) => console.log(error))
     }
 
     return (
         <div id={id}>
             <div>
+                <div style={{marginTop: '80px', marginBottom: '-80px'}}>
+                    <Pagination totalPages={totalPages} currentPage={currentPage} paginate={paginate}/>
+                </div>
                 <OfferList apartments={apartments} loading={loading}/>
-                <Pagination totalPages={totalPages} currentPage={currentPage} paginate={paginate}/>
+                <div style={{marginBottom: '80px'}}>
+                    <Pagination totalPages={totalPages} currentPage={currentPage} paginate={paginate}/>
+                </div>
             </div>
         </div>
     );

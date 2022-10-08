@@ -34,10 +34,10 @@ const HeroSection = () => {
                 <HeroBtnWrapper>
                     <Button to='offer'
                             smooth={true}
-                            duration={500}
+                            duration={50}
                             spy={true}
                             exact='true'
-                            offset={-80} onMouseEnter={onHover} onMouseLeave={onHover} primary='true' dark='true'>
+                            offset={-100} onMouseEnter={onHover} onMouseLeave={onHover} primary='true' dark='true'>
                         Zobacz ofertę {hover ? <ArrowForward/> : <ArrowRight/>}
                     </Button>
                 </HeroBtnWrapper>
