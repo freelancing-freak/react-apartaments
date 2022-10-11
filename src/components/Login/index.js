@@ -7,9 +7,9 @@ import {
     FormInput,
     FormLabel,
     FormWrap,
-    Icon,
-    Text
+    Icon
 } from "./LoginElements";
+import {Link} from "react-router-dom";
 
 const Login = () => {
     return (
@@ -21,11 +21,14 @@ const Login = () => {
                         <Form action='#'>
                             <FormH1>Logowanie</FormH1>
                             <FormLabel htmlFor='for'>Email</FormLabel>
-                            <FormInput type='email' required/>
+                            <FormInput type='username' required/>
                             <FormLabel htmlFor='for'>Hasło</FormLabel>
                             <FormInput type='password' required/>
-                            <FormButton type='submit'>Zaloguj</FormButton>
-                            <Text>Zapomniałeś hasła?</Text>
+                            <FormButton type='submit'>
+                                <Link to='/admin/apartments'>
+                                    Zaloguj
+                                </Link>
+                            </FormButton>
                         </Form>
                     </FormContent>
                 </FormWrap>

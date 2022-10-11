@@ -1,11 +1,9 @@
 import './App.css';
-import {
-    BrowserRouter,
-    Routes,
-    Route
-} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./pages";
 import LoginPage from "./pages/login";
+import ApartmentsPage from "./pages/admin/Apartments";
+import SettingsPage from "./pages/admin/SettingsPage";
 
 function App() {
     return (
@@ -14,6 +12,8 @@ function App() {
                 <Route path='/' element={<Home/>} exact/>
                 <Route path='/offer' element={<Home/>} exact/>
                 <Route path='/login' element={<LoginPage/>} exact/>
+                <Route exact path="/admin/apartments" element={<ApartmentsPage/>}/>
+                <Route exact path="/admin/settings" element={<SettingsPage/>}/>
             </Routes>
         </BrowserRouter>
     );
