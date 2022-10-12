@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const TextSectionContainer = styled.div`
+  padding-top: 60px;
+  padding-bottom: 30px;
+`;
+
 export const H2 = styled.h2`
   text-align: center;
   margin: 15px;

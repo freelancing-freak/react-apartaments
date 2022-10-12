@@ -3,12 +3,13 @@ import Navbar from "../components/Navbar";
 import {useLayoutEffect, useState} from "react";
 import HeroSection from "../components/HeroSection";
 import Footer from "../components/Footer";
-import OfferSection from "../components/Offer";
 import ContactForm from "../components/Contact/ContactForm";
+import ContactSection from "../components/Contact";
 import TextSection from "../components/TextSection";
-import {backgroundImg} from "../assets";
+import ContactMap from "../components/Contact/ContactMap";
+import {backgroundOtherImg} from "../assets";
 
-const Home = () => {
+const ContactPage = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => {
@@ -22,21 +23,22 @@ const Home = () => {
     return (
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
-            <Navbar toggle={toggle} activePage={'/'}/>
-            <HeroSection height={'800px'}
-                         imgSrc={backgroundImg}
-                         title={'APARTAMENTY NA SPRZEDAŻ'}
-                         subtitle={'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'}
-                         btnVisibility={true}/>
-            <OfferSection id={'offer'}/>
+            <Navbar toggle={toggle} activePage={'/contact'}/>
+            <HeroSection height={'600px'}
+                         imgSrc={backgroundOtherImg}
+                         title={'Skontaktuj Się Z Nami'}
+                         subtitle={'Zapraszamy do poniższych form kontaktu'}
+                         btnVisibility={false}/>
+            <ContactSection/>
             <TextSection title={'Zapraszamy do '}
                          titleSpan={'kontaktu'}
                          subtitle={'Wypełnij formularz za pośrednictwem strony, a skontaktujemy sie z tobą najszybciej, jak to możliwe'}
             />
             <ContactForm/>
+            <ContactMap/>
             <Footer/>
         </>
     );
 }
 
-export default Home
+export default ContactPage;

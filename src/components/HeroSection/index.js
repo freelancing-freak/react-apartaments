@@ -9,11 +9,10 @@ import {
     HeroImg,
     HeroP
 } from "./HeroElements";
-import Image from '../../images/background.jpeg';
 import {useState} from "react";
 import {Button} from "../ButtonElement";
 
-const HeroSection = () => {
+const HeroSection = ({height, imgSrc, title, subtitle, btnVisibility}) => {
 
     const [hover, setHover] = useState(false);
 
@@ -22,16 +21,16 @@ const HeroSection = () => {
     }
 
     return (
-        <HeroContainer>
+        <HeroContainer style={{height: height}}>
             <HeroBg>
-                <HeroImg src={Image}/>
+                <HeroImg src={imgSrc}/>
             </HeroBg>
             <HeroContent>
-                <HeroH1>Apartamenty na sprzedaż</HeroH1>
+                <HeroH1>{title}</HeroH1>
                 <HeroP>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    {subtitle}
                 </HeroP>
-                <HeroBtnWrapper>
+                {btnVisibility === true ? <HeroBtnWrapper>
                     <Button to='offer'
                             smooth={true}
                             duration={50}
@@ -40,7 +39,7 @@ const HeroSection = () => {
                             offset={-100} onMouseEnter={onHover} onMouseLeave={onHover} primary='true' dark='true'>
                         Zobacz ofertę {hover ? <ArrowForward/> : <ArrowRight/>}
                     </Button>
-                </HeroBtnWrapper>
+                </HeroBtnWrapper> : <span/>}
             </HeroContent>
         </HeroContainer>
     );

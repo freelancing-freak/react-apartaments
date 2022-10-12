@@ -5,6 +5,7 @@ import LoginPage from "./pages/login";
 import ApartmentsPage from "./pages/admin/Apartments";
 import SettingsPage from "./pages/admin/SettingsPage";
 import AddApartmentPage from "./pages/admin/AddNewApartment";
+import ContactPage from "./pages/contact";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<Home/>} exact/>
                 <Route path='/offer' element={<Home/>} exact/>
+                <Route path='/contact' element={<ContactPage/>} exact/>
                 <Route path='/login' element={<LoginPage/>} exact/>
                 <Route exact path="/admin/apartments" element={<ApartmentsPage/>}/>
                 <Route exact path="/admin/apartments/add" element={<AddApartmentPage/>}/>
