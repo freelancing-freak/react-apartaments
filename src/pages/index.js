@@ -17,7 +17,7 @@ const Home = () => {
     return (
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
-            <Navbar toggle={toggle}/>
+            <Navbar toggle={toggle} activePage={'/'}/>
             <HeroSection/>
             <OfferSection id={'offer'}/>
             <TextSection title={'Zapraszamy do '}

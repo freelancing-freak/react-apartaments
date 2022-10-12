@@ -6,7 +6,7 @@ import {
     NavBtn,
     NavBtnLink,
     NavItem,
-    NavLinks,
+    NavLinkR,
     NavLogo,
     NavMenu
 } from "./NavbarElements";
@@ -14,7 +14,7 @@ import {useEffect, useState} from "react";
 import {IconContext} from "react-icons/lib";
 import {animateScroll as scroll} from 'react-scroll';
 
-const Navbar = ({toggle}) => {
+const Navbar = ({toggle, activePage}) => {
     const [scrollNav, setScrollNav] = useState(false);
 
     const changeNav = () => {
@@ -44,18 +44,16 @@ const Navbar = ({toggle}) => {
                         </MobileIcon>
                         <NavMenu>
                             <NavItem>
-                                <NavLinks to='offer'
-                                          smooth={true}
-                                          duration={50}
-                                          spy={true}
-                                          exact='true'
-                                          offset={-100}>Oferta</NavLinks>
+                                <NavLinkR to='/'
+                                          className={activePage === '/' ? 'active' : ''}>Strona główna</NavLinkR>
                             </NavItem>
                             <NavItem>
-                                <NavLinks to='about'>O nas</NavLinks>
+                                <NavLinkR to='about'
+                                          className={activePage === '/about' ? 'active' : ''}>O nas</NavLinkR>
                             </NavItem>
                             <NavItem>
-                                <NavLinks to='contact'>Kontakt</NavLinks>
+                                <NavLinkR to='contact'
+                                          className={activePage === '/contact' ? 'active' : ''}>Kontakt</NavLinkR>
                             </NavItem>
                         </NavMenu>
                         <NavBtn>
