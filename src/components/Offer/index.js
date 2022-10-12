@@ -10,7 +10,7 @@ const OfferSection = ({id}) => {
     const [currentPage, setCurrentPage] = useState(0);
     const [totalElements, setTotalElements] = useState([]);
     const [totalPages, setTotalPages] = useState([]);
-    const [pageSize] = useState(6);
+    const [pageSize] = useState(12);
 
     useEffect(() => {
         fetchApartments(currentPage).catch((error) => console.log(error))
@@ -41,7 +41,7 @@ const OfferSection = ({id}) => {
                     <Pagination totalPages={totalPages} currentPage={currentPage} paginate={paginate}/>
                 </div>
                 <OfferList apartments={apartments} loading={loading}/>
-                <div style={{marginBottom: '80px'}}>
+                <div>
                     <Pagination totalPages={totalPages} currentPage={currentPage} paginate={paginate}/>
                 </div>
             </div>
