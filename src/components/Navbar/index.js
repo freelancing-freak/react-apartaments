@@ -48,11 +48,11 @@ const Navbar = ({toggle, activePage}) => {
                                           className={activePage === '/' ? 'active' : ''}>Strona główna</NavLinkR>
                             </NavItem>
                             <NavItem>
-                                <NavLinkR to='about'
+                                <NavLinkR to='/about'
                                           className={activePage === '/about' ? 'active' : ''}>O nas</NavLinkR>
                             </NavItem>
                             <NavItem>
-                                <NavLinkR to='contact'
+                                <NavLinkR to='/contact'
                                           className={activePage === '/contact' ? 'active' : ''}>Kontakt</NavLinkR>
                             </NavItem>
                         </NavMenu>
