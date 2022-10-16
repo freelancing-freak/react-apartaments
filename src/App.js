@@ -21,6 +21,7 @@ function App() {
                 <Route exact path="/admin/apartments" element={<ApartmentsPage/>}/>
                 <Route exact path="/admin/apartments/add" element={<AddApartmentPage/>}/>
                 <Route exact path="/admin/settings" element={<SettingsPage/>}/>
+                <Route path='*' element={<Home/>} exact/>
             </Routes>
         </BrowserRouter>
     );
