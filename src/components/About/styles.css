@@ -1,0 +1,76 @@
+.more-info {
+    margin-top: 30px;
+}
+
+.more-info .left-image img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.about-info .right-content {
+    padding: 0 !important;
+    margin-right: 30px;
+}
+
+.more-info .right-content {
+    padding: 45px 45px 45px 30px;
+}
+
+.more-info .right-content span, .team .section-heading span {
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #666666;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.more-info .right-content h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 35px;
+}
+
+.more-info .right-content em {
+    font-style: normal;
+    color: #01bf71;
+}
+
+.more-info .right-content p {
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.team {
+    margin-top: 10px;
+}
+
+.team-item img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.team-item .down-content {
+    background-color: #fff;
+    padding: 30px 0 30px 0;
+}
+
+.team-item .down-content h4 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.25px;
+    margin-bottom: 10px;
+}
+
+.team-item .down-content span {
+    color: #01bf71;
+    font-weight: 600;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.team-item .down-content p {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
