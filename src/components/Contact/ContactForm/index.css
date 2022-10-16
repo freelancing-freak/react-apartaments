@@ -64,4 +64,8 @@
         width: 125px;
         margin-left: 200px;
     }
+
+    button {
+        width: 95%;
+    }
 }

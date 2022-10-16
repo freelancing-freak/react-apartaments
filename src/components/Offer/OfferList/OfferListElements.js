@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {Col, Container} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 export const OfferContainer = styled(Container)`
   margin-top: 80px;
@@ -44,6 +45,15 @@ export const OfferColHeader = styled.header`
 
   h6 {
     text-transform: uppercase;
+  }
+`;
+
+export const OfferLink = styled(Link)`
+  color: black;
+  
+  &:hover {
+    color: #01bf71;
+    transition: 0.3s ease-in-out;
   }
 `;
 

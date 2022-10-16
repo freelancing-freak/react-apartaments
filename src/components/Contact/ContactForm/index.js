@@ -12,12 +12,12 @@ const ContactForm = () => {
     const [disabled, setDisabled] = useState(false);
 
     const onSubmit = async (data) => {
-        const {name, email, subject, message} = data;
+        const {name, phoneNumber, subject, message} = data;
         try {
             setDisabled(true);
             const templateParams = {
                 name,
-                email,
+                phoneNumber,
                 subject,
                 message
             };
@@ -55,14 +55,14 @@ const ContactForm = () => {
                                             {errors.name && <span className='errorMessage'>{errors.name.message}</span>}
                                         </div>
                                         <div className='col-6'>
-                                            <input type='email' name='email'
-                                                   {...register('email', {
+                                            <input type='tel' name='phoneNumber'
+                                                   {...register('phoneNumber', {
                                                        required: true,
-                                                       pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-                                                   })} className='form-control formInput' placeholder='Adres email'
+                                                       pattern: /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g
+                                                   })} className='form-control formInput' placeholder='Numer telefonu'
                                             />
-                                            {errors.email && (
-                                                <span className='errorMessage'>Proszę wprowadzić poprawny adres email</span>
+                                            {errors.phoneNumber && (
+                                                <span className='errorMessage'>Proszę wprowadzić poprawny numer telefonu</span>
                                             )}
                                         </div>
                                     </div>

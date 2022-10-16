@@ -2,6 +2,7 @@ import {animateScroll as scroll} from "react-scroll";
 import './styles.css';
 import {Container} from "react-bootstrap";
 import {ContainerWrapper} from "./FooterElements";
+import {Link} from "react-router-dom";
 
 const Footer = () => {
 
@@ -47,9 +48,9 @@ const Footer = () => {
                         <div className="footer-right">
                             <span>Dodatkowe strony</span>
                             <p className="footer-links">
-                                <a href='#' onClick={toggleHome}>Oferta</a>
-                                <a href="#">O nas</a>
-                                <a href="#">Kontakt</a>
+                                <Link to='/' onClick={toggleHome}>Oferta</Link>
+                                <Link to='/about'>O nas</Link>
+                                <Link to='/contact'>Kontakt</Link>
                                 <a href="#">Polityka prywatności</a>
                             </p>
                             <p className="footer-company-name">Apartments © {new Date().getFullYear()} Wszystkie prawa zastrzeżone.</p>
