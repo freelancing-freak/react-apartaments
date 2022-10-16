@@ -1,5 +1,8 @@
 import './styles.css';
 import {team1Img, team2Img, team3Img} from "../../assets";
+import {Carousel} from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import TextSection from "../TextSection";
 
 const AboutSection = () => {
 
@@ -51,39 +54,81 @@ const AboutSection = () => {
                         <div className="col-md-4">
                             <div className="team-item">
                                 <img src={team1Img} alt=""/>
-                                    <div className="down-content">
-                                        <h4>John Doe</h4>
-                                        <span>Co-Founder</span>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            Lorem Ipsum has been the industry's standard dummy text.</p>
-                                    </div>
+                                <div className="down-content">
+                                    <h4>John Doe</h4>
+                                    <span>Co-Founder</span>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum has been the industry's standard dummy text.</p>
+                                </div>
                             </div>
                         </div>
                         <div className="col-md-4">
                             <div className="team-item">
                                 <img src={team2Img} alt=""/>
-                                    <div className="down-content">
-                                        <h4>Sara Tancredi</h4>
-                                        <span>Chief Marketing Officer</span>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            Lorem Ipsum has been the industry's standard dummy text.</p>
-                                    </div>
+                                <div className="down-content">
+                                    <h4>Sara Tancredi</h4>
+                                    <span>Chief Marketing Officer</span>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum has been the industry's standard dummy text.</p>
+                                </div>
                             </div>
                         </div>
                         <div className="col-md-4">
                             <div className="team-item">
                                 <img src={team3Img} alt=""/>
-                                    <div className="down-content">
-                                        <h4>John Smith</h4>
-                                        <span>Financial Analyst</span>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            Lorem Ipsum has been the industry's standard dummy text.</p>
-                                    </div>
+                                <div className="down-content">
+                                    <h4>John Smith</h4>
+                                    <span>Financial Analyst</span>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum has been the industry's standard dummy text.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <TextSection title={'Co mówią klienci o '}
+                         titleSpan={'naszych usługach'}
+                         subtitle={'OPINIE NASZYCH KLIENTÓW'}
+            />
+
+            <Carousel showArrows={true}
+                      infiniteLoop={true}
+                      showThumbs={false}
+                      showStatus={false}
+                      autoPlay={true}
+                      interval={6 * 1000}>
+                <div>
+                    <div className="myCarousel">
+                        <h3>Shirley Fultz</h3>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <div className="myCarousel">
+                        <h3>Daniel Keystone</h3>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <div className="myCarousel">
+                        <h3>Theo Sorel</h3>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text.
+                        </p>
+                    </div>
+                </div>
+            </Carousel>
         </>
     );
 }
