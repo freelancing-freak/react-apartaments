@@ -47,7 +47,7 @@ const Footer = () => {
                         <div className="footer-right">
                             <span>Dodatkowe strony</span>
                             <p className="footer-links">
-                                <a href='#' onClick={toggleHome}>Strona główna</a>
+                                <a href='#' onClick={toggleHome}>Oferta</a>
                                 <a href="#">O nas</a>
                                 <a href="#">Kontakt</a>
                                 <a href="#">Polityka prywatności</a>

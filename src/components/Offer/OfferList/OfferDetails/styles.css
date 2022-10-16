@@ -1,14 +1,68 @@
-@media (min-width: 768px) {
-    .carousel .slider-wrapper {
-        width: 80%;
+#proother {
+    margin: 0 100px 0 100px;
+}
+
+#prodetails {
+    margin: 100px 100px 0 100px;
+    display: flex;
+}
+
+#prodetails .single-pro-image {
+    width: 55%;
+    margin-right: 50px;
+}
+
+.small-img-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-img-col {
+    flex-basis: 24%;
+    cursor: pointer;
+}
+
+#prodetails .single-pro-details {
+    width: 50%;
+}
+
+#prodetails .single-pro-details h4 {
+    padding: 0 0 20px 0;
+}
+
+#prodetails .single-pro-details h5 {
+    padding-top: 5px;
+    color: rgba(0, 0, 0, 0.55);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#prodetails .single-pro-details h2 {
+    font-size: 26px;
+    color: #01bf71;
+}
+
+#prodetails .single-pro-details span {
+    line-height: 25px;
+}
+
+@media (max-width: 768px) {
+    #proother {
+        margin: 10px 20px 20px 20px;
     }
 
-    .carousel .thumb {
-        width: 5%;
-        height: 50px;
+    #prodetails {
+        display: flex;
+        flex-direction: column;
+        margin: 100px 20px 20px 20px;
     }
 
-    .carousel {
-        text-align: center;
+    #prodetails .single-pro-image {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #prodetails .single-pro-details {
+        width: 100%;
     }
 }
