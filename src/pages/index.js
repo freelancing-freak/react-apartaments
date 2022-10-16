@@ -4,8 +4,6 @@ import {useLayoutEffect, useState} from "react";
 import HeroSection from "../components/HeroSection";
 import Footer from "../components/Footer";
 import OfferSection from "../components/Offer";
-import ContactForm from "../components/Contact/ContactForm";
-import TextSection from "../components/TextSection";
 import {backgroundImg} from "../assets";
 
 const Home = () => {
@@ -29,11 +27,6 @@ const Home = () => {
                          subtitle={'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'}
                          btnVisibility={true}/>
             <OfferSection id={'offer'}/>
-            <TextSection title={'Zapraszamy do '}
-                         titleSpan={'kontaktu'}
-                         subtitle={'Wypełnij formularz za pośrednictwem strony, a skontaktujemy sie z tobą najszybciej, jak to możliwe'}
-            />
-            <ContactForm/>
             <Footer/>
         </>
     );
