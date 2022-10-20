@@ -93,42 +93,48 @@ const AboutSection = () => {
                          subtitle={'OPINIE NASZYCH KLIENTÓW'}
             />
 
-            <Carousel showArrows={true}
-                      infiniteLoop={true}
-                      showThumbs={false}
-                      showStatus={false}
-                      autoPlay={true}
-                      interval={6 * 1000}>
-                <div>
-                    <div className="myCarousel">
-                        <h3>Shirley Fultz</h3>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text.
-                        </p>
+            <section id="testimonials">
+                <Carousel
+                    showArrows={true}
+                    infiniteLoop={true}
+                    showThumbs={false}
+                    showStatus={false}
+                    autoPlay={true}
+                    interval={6 * 1000}>
+                    <div>
+                        <div className="myCarousel">
+                            <h3>Shirley Fultz</h3>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has
+                                been the industry's standard dummy text.
+                            </p>
+                        </div>
                     </div>
-                </div>
 
-                <div>
-                    <div className="myCarousel">
-                        <h3>Daniel Keystone</h3>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text.
-                        </p>
+                    <div>
+                        <div className="myCarousel">
+                            <h3>Daniel Keystone</h3>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has
+                                been the industry's standard dummy text.
+                            </p>
+                        </div>
                     </div>
-                </div>
 
-                <div>
-                    <div className="myCarousel">
-                        <h3>Theo Sorel</h3>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text.
-                        </p>
+                    <div>
+                        <div className="myCarousel">
+                            <h3>Theo Sorel</h3>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has
+                                been the industry's standard dummy text.
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </Carousel>
+                </Carousel>
+            </section>
         </>
     );
 }

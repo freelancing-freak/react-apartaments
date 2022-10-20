@@ -65,4 +65,8 @@
     #prodetails .single-pro-details {
         width: 100%;
     }
+
+    #prodetails .carousel.carousel-slider .control-arrow {
+        display: none !important;
+    }
 }
