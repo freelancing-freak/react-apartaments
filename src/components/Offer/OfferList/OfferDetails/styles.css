@@ -1,4 +1,4 @@
-#proother {
+section {
     margin: 0 100px 0 100px;
 }
 
@@ -24,6 +24,11 @@
 
 #prodetails .single-pro-details {
     width: 50%;
+    background: #f7f7f7;
+}
+
+#prodetails .single-pro-details-content {
+    margin: 15px;
 }
 
 #prodetails .single-pro-details h4 {
@@ -46,8 +51,22 @@
     line-height: 25px;
 }
 
+h3 {
+    font-size: 1.6rem;
+    margin: 2rem 0;
+    font-weight: bold;
+    line-height: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
 @media (max-width: 768px) {
-    #proother {
+
+    section {
+        margin: 0 25px 0 25px;
+    }
+
+    #proother #description {
         margin: 10px 20px 20px 20px;
     }
 
