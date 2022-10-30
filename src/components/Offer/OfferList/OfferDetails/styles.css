@@ -1,3 +1,9 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+#prodetails .single-pro-details {
+    padding-top: 30px;
+}
+
 section {
     margin: 0 100px 0 100px;
 }
@@ -8,7 +14,6 @@ section {
 }
 
 #prodetails .single-pro-image {
-    width: 55%;
     margin-right: 50px;
 }
 
@@ -22,13 +27,8 @@ section {
     cursor: pointer;
 }
 
-#prodetails .single-pro-details {
-    width: 50%;
-    background: #f7f7f7;
-}
-
-#prodetails .single-pro-details-content {
-    margin: 15px;
+#prodetails .single-pro-image-content {
+    margin-top: -25px;
 }
 
 #prodetails .single-pro-details h4 {
@@ -81,7 +81,7 @@ h3 {
         margin-right: 0;
     }
 
-    #prodetails .single-pro-details {
+    #prodetails .single-pro-image {
         width: 100%;
     }
 
