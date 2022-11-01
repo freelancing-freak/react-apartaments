@@ -2,7 +2,17 @@ import React, {useEffect, useState} from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import './styles.css';
 import ImageGallery from 'react-image-gallery';
-import {H1} from "./OfferDetailsElements";
+import {
+    OfferDetailsContainer,
+    OfferDetailsContent,
+    OfferDetailsDate,
+    OfferDetailsLocationWrapper,
+    OfferDetailsPrice,
+    OfferDetailsShowMoreButton,
+    OfferDetailsTag,
+    OfferDetailsTagWrapper,
+    OfferDetailsTextHeader
+} from "./OfferDetailsElements";
 
 const OfferDetails = ({apartment}) => {
 
@@ -46,33 +56,42 @@ const OfferDetails = ({apartment}) => {
     ];
 
     const [showMore, setShowMore] = useState(false);
+    const text = apartment.description;
 
-    let text = apartment.description;
+    const [matches, setMatches] = useState(
+        window.matchMedia("(min-width: 768px)").matches
+    )
+    useEffect(() => {
+        window.matchMedia("(min-width: 768px)").addEventListener('change', e => setMatches(e.matches));
+    }, []);
+
     return (
         <>
-            <main className='container'>
-                <section className="content">
-                    <ImageGallery items={images} lazyload={true} showPlayButton={false} autoPlay={true} showNav={false}
-                                  thumbnailPosition={'right'}/>
-                    <p className='abc'>
-                        Dodane 28 października 2022
-                    </p>
-                    <p className='price'>
-                        {apartment.price} €
-                    </p>
-                    <H1>{apartment.name}</H1>
-                    <div className='location'>
-                        <i style={{fontSize: '20px'}} className="fa fa-map-marker"/>
-                        <b>&nbsp;{apartment.location}</b>
-                    </div>
-                    <ul className="css-sfcl1s">
-                        <li className="css-ox1ptj"><p className="css-xl6fe0-Text eu5v0x0">
-                            <span>{apartment.measurement} M<sup>2</sup></span></p></li>
-                        <li className="css-ox1ptj"><p
-                            className="css-xl6fe0-Text eu5v0x0">{apartment.numberOfRooms} pokoje</p></li>
-                    </ul>
+            <OfferDetailsContainer>
+                <OfferDetailsContent>
+                    {matches && <ImageGallery items={images}
+                                              lazyload={true}
+                                              showPlayButton={false}
+                                              autoPlay={true}
+                                              thumbnailPosition={'right'}/>}
+                    {!matches && <ImageGallery items={images}
+                                               lazyload={true}
+                                               showPlayButton={false}
+                                               autoPlay={true}
+                                               thumbnailPosition={'bottom'}/>}
+                    <OfferDetailsDate>Dodane 28 października 2022</OfferDetailsDate>
+                    <OfferDetailsPrice>{apartment.price} €</OfferDetailsPrice>
+                    <OfferDetailsTextHeader>{apartment.name}</OfferDetailsTextHeader>
+                    <OfferDetailsLocationWrapper>
+                        <i className="fa fa-map-marker"/>
+                        <span>&nbsp;{apartment.location}</span>
+                    </OfferDetailsLocationWrapper>
+                    <OfferDetailsTagWrapper>
+                        <OfferDetailsTag>{apartment.measurement} M<sup>2</sup></OfferDetailsTag>
+                        <OfferDetailsTag><p>{apartment.numberOfRooms} pokoje</p></OfferDetailsTag>
+                    </OfferDetailsTagWrapper>
                     <br/>
-                    <H1>Opis</H1>
+                    <OfferDetailsTextHeader>Opis</OfferDetailsTextHeader>
                     <hr/>
                     {
                         text.length <= 250 ?
@@ -83,28 +102,29 @@ const OfferDetails = ({apartment}) => {
                                 {showMore ? text : `${text.substring(0, 400)} ...`}
                                 <br/>
                                 <br/>
-                                <button className='btnn' onClick={() => setShowMore(!showMore)}>
+                                <OfferDetailsShowMoreButton onClick={() => setShowMore(!showMore)}>
                                     {showMore ? 'Skróć opis' : 'Zobacz więcej'}
-                                </button>
+                                </OfferDetailsShowMoreButton>
                             </h6>
                     }
                     <br/>
-                    <H1>Lokalizacja</H1>
+                    <OfferDetailsTextHeader>Lokalizacja</OfferDetailsTextHeader>
                     <hr/>
-                    <iframe
-                        src={apartment.locationSrc}
-                        width="100%" height="500px" frameBorder="0" style={{border: '0'}} allowFullScreen/>
-                </section>
+                    <iframe src={apartment.locationSrc}
+                            width="100%"
+                            height="500px"
+                            frameBorder="0"
+                            style={{border: '0'}} allowFullScreen/>
+                </OfferDetailsContent>
                 <aside className="form-contact">
                     <h2>Skontaktuj się</h2>
                     <input type="text" className="field" placeholder="Imię"/>
-                    <input type="text" className="field" placeholder="E-mail"/>
                     <input type="text" className="field" placeholder="Telefon"/>
                     <textarea placeholder="Wiadomość" value='Dzień dobry, zainteresowała mnie ta oferta.'
                               className="field"/>
                     <button className="btn">Wyślij</button>
                 </aside>
-            </main>
+            </OfferDetailsContainer>
         </>
     );
 }

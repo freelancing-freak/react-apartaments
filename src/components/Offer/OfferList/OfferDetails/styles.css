@@ -1,18 +1,5 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
-main {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    max-width: 80%;
-    margin: 7rem auto 3rem auto;
-}
-
-.content {
-    max-width: 60rem;
-    margin-bottom: 1rem;
-}
-
 .form-contact {
     height: 31.9rem;
     width: 10rem;
@@ -20,6 +7,14 @@ main {
     flex-basis: 300px;
     position: sticky;
     top: 7rem;
+}
+
+.image-gallery-right-nav {
+    width: auto;
+}
+
+.image-gallery-left-nav {
+    width: auto;
 }
 
 .form-contact h2 {
@@ -38,33 +33,6 @@ main {
     width: 50px;
     border-radius: 2px;
     background-color: #01bf71;
-}
-
-.btnn {
-    --full-height: calc(100vh - 50px);
-    -webkit-box-direction: normal;
-    box-sizing: border-box;
-    font-family: inherit;
-    text-transform: none;
-    -webkit-appearance: button;
-    max-width: 100%;
-    display: inline-flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-    vertical-align: middle;
-    transition: fill .15s ease-in-out,color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-    font-size: 16px;
-    line-height: 22px;
-    margin: 0;
-    padding: 8px 11px;
-    border-radius: 6px;
-    color: #333;
-    fill: #333;
-    cursor: pointer;
-    background-color: #eee;
-    border: 1px solid #eee;
 }
 
 h6 {
@@ -87,40 +55,8 @@ h6 {
 }
 
 .form-contact textarea {
-    min-height: 175px;
+    min-height: 245px;
     resize: none;
-}
-
-.abc {
-    --vh: 19.74px;
-    -webkit-font-smoothing: antialiased;
-    box-sizing: border-box;
-    font-family: Geomanist,Arial,sans-serif;
-    line-height: 16px;
-    font-size: 12px;
-    color: rgb(64, 99, 103);
-    display: block;
-    padding-top: 15px;
-    padding-bottom: 10px;
-    margin: 0;
-}
-
-.price {
-    text-size-adjust: 100%;
-    --vh: 19.74px;
-    -webkit-font-smoothing: antialiased;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: 24px;
-    line-height: 26px;
-    font-weight: 700;
-    color: rgb(0, 47, 52);
-    margin: 0;
-    padding-bottom: 8px;
-}
-
-.location {
-    padding-bottom: 8px;
 }
 
 .form-contact .btn {
@@ -142,27 +78,4 @@ h6 {
 .form-contact .field:focus {
     border: 2px solid rgba(30, 85, 250, 0.47);
     background-color: #fff;
-}
-
-.css-sfcl1s {
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.css-ox1ptj {
-    box-sizing: border-box;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    padding: 6px 16px 0;
-    margin: 8px 8px 8px 0;
-    border-radius: 4px;
-    border: 1px solid rgb(64, 99, 103);
-    color: rgba(0, 0, 0, 0.55);
-    font-weight: bold;
-    text-transform: uppercase;
 }
