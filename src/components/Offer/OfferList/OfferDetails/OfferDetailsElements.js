@@ -5,8 +5,12 @@ export const OfferDetailsContainer = styled(Container)`
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  max-width: 80%;
+  max-width: 70%;
   margin: 7rem auto 3rem auto;
+
+  @media (max-width: 768px) {
+    display: inherit;
+  }
 `;
 
 export const OfferDetailsContent = styled.section`

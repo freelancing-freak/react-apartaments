@@ -13,6 +13,7 @@ import {
     OfferDetailsTagWrapper,
     OfferDetailsTextHeader
 } from "./OfferDetailsElements";
+import {matches} from "@testing-library/jest-dom/dist/utils";
 
 const OfferDetails = ({apartment}) => {
 
@@ -56,18 +57,16 @@ const OfferDetails = ({apartment}) => {
     ];
 
     const [showMore, setShowMore] = useState(false);
-    const text = apartment.description;
-
-    const [matches, setMatches] = useState(
-        window.matchMedia("(min-width: 768px)").matches
-    )
+    const [matches, setMatches] = useState(window.matchMedia("(min-width: 768px)").matches)
     useEffect(() => {
         window.matchMedia("(min-width: 768px)").addEventListener('change', e => setMatches(e.matches));
     }, []);
 
+    const text = apartment.description;
+
     return (
         <>
-            <OfferDetailsContainer>
+            <OfferDetailsContainer id='wrapper'>
                 <OfferDetailsContent>
                     {matches && <ImageGallery items={images}
                                               lazyload={true}
