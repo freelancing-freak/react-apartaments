@@ -1,91 +1,83 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
-#prodetails .single-pro-details {
-    padding-top: 30px;
-}
-
-section {
-    margin: 0 100px 0 100px;
-}
-
-#prodetails {
-    margin: 100px 100px 0 100px;
+main {
     display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 80%;
+    margin: 7rem auto;
 }
 
-#prodetails .single-pro-image {
-    margin-right: 50px;
+.image-gallery {
+    max-width: 60rem;
+    margin-bottom: 1rem;
 }
 
-.small-img-group {
-    display: flex;
-    justify-content: space-between;
+.form-contact {
+    height: 31.9rem;
+    width: 10rem;
+    flex-grow: 1;
+    flex-basis: 300px;
+    position: sticky;
+    top: 7rem;
 }
 
-.small-img-col {
-    flex-basis: 24%;
+.form-contact h2 {
+    position: relative;
+    padding: 0 0 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.form-contact h2:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50px;
+    border-radius: 2px;
+    background-color: #01bf71;
+}
+
+.form-contact .field {
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0);
+    outline: none;
+    background-color: rgba(230, 230, 230, 0.6);
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 22px;
+    transition: .3s;
+}
+
+.form-contact .field:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.form-contact textarea {
+    min-height: 175px;
+    resize: none;
+}
+
+.form-contact .btn {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: #01bf71;
+    color: #fff;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
     cursor: pointer;
+    transition: .3s;
 }
 
-#prodetails .single-pro-image-content {
-    margin-top: -25px;
+.form-contact .btn:hover {
+    background-color: #01bf71;
 }
 
-#prodetails .single-pro-details h4 {
-    padding: 0 0 20px 0;
-}
-
-#prodetails .single-pro-details h5 {
-    padding-top: 5px;
-    color: rgba(0, 0, 0, 0.55);
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-#prodetails .single-pro-details h2 {
-    font-size: 26px;
-    color: #01bf71;
-}
-
-#prodetails .single-pro-details span {
-    line-height: 25px;
-}
-
-h3 {
-    font-size: 1.6rem;
-    margin: 2rem 0;
-    font-weight: bold;
-    line-height: 1.2em;
-    text-transform: uppercase;
-    letter-spacing: 0;
-}
-
-@media (max-width: 768px) {
-
-    section {
-        margin: 0 25px 0 25px;
-    }
-
-    #proother #description {
-        margin: 10px 20px 20px 20px;
-    }
-
-    #prodetails {
-        display: flex;
-        flex-direction: column;
-        margin: 100px 20px 20px 20px;
-    }
-
-    #prodetails .single-pro-image {
-        width: 100%;
-        margin-right: 0;
-    }
-
-    #prodetails .single-pro-image {
-        width: 100%;
-    }
-
-    #prodetails .carousel.carousel-slider .control-arrow {
-        display: none !important;
-    }
+.form-contact .field:focus {
+    border: 2px solid rgba(30, 85, 250, 0.47);
+    background-color: #fff;
 }
