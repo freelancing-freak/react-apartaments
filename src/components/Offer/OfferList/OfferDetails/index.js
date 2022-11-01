@@ -126,7 +126,7 @@ const OfferDetails = ({apartment}) => {
                     <h2>Skontaktuj się</h2>
                     <input type="text" className="field" placeholder="Imię"/>
                     <input type="text" className="field" placeholder="Telefon"/>
-                    <textarea placeholder="Wiadomość" value='Dzień dobry, zainteresowała mnie ta oferta.'
+                    <textarea placeholder="Wiadomość" defaultValue='Dzień dobry, zainteresowała mnie ta oferta.'
                               className="field"></textarea>
                     <button className="btn">Wyślij</button>
                 </aside>
