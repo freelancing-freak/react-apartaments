@@ -13,7 +13,6 @@ import {
     OfferDetailsTagWrapper,
     OfferDetailsTextHeader
 } from "./OfferDetailsElements";
-import {matches} from "@testing-library/jest-dom/dist/utils";
 
 const OfferDetails = ({apartment}) => {
 
@@ -56,6 +55,7 @@ const OfferDetails = ({apartment}) => {
         },
     ];
 
+    const [scrollToTop, setScrollToTop] = useState(true);
     const [showMore, setShowMore] = useState(false);
     const [matches, setMatches] = useState(window.matchMedia("(min-width: 768px)").matches)
     useEffect(() => {
@@ -63,6 +63,10 @@ const OfferDetails = ({apartment}) => {
     }, []);
 
     const text = apartment.description;
+
+    if (scrollToTop) {
+        window.scrollTo({top: 0, behavior: 'instant'});
+    }
 
     return (
         <>
@@ -101,7 +105,10 @@ const OfferDetails = ({apartment}) => {
                                 {showMore ? text : `${text.substring(0, 400)} ...`}
                                 <br/>
                                 <br/>
-                                <OfferDetailsShowMoreButton onClick={() => setShowMore(!showMore)}>
+                                <OfferDetailsShowMoreButton onClick={() => {
+                                    setScrollToTop(false);
+                                    setShowMore(!showMore);
+                                }}>
                                     {showMore ? 'Skróć opis' : 'Zobacz więcej'}
                                 </OfferDetailsShowMoreButton>
                             </h6>
