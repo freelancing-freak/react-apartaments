@@ -127,7 +127,7 @@ const OfferDetails = ({apartment}) => {
                     <input type="text" className="field" placeholder="Imię"/>
                     <input type="text" className="field" placeholder="Telefon"/>
                     <textarea placeholder="Wiadomość" value='Dzień dobry, zainteresowała mnie ta oferta.'
-                              className="field"/>
+                              className="field"></textarea>
                     <button className="btn">Wyślij</button>
                 </aside>
             </OfferDetailsContainer>

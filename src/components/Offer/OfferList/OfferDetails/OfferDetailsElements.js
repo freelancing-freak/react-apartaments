@@ -5,7 +5,7 @@ export const OfferDetailsContainer = styled(Container)`
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  max-width: 70%;
+  max-width: 80%;
   margin: 7rem auto 3rem auto;
 
   @media (max-width: 768px) {
