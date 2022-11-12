@@ -124,6 +124,7 @@ const OfferDetails = ({apartment}) => {
                 </OfferDetailsContent>
                 <aside className="form-contact">
                     <h2>Skontaktuj się</h2>
+                    <hr/>
                     <input type="text" className="field" placeholder="Imię"/>
                     <input type="text" className="field" placeholder="Telefon"/>
                     <textarea placeholder="Wiadomość" defaultValue='Dzień dobry, zainteresowała mnie ta oferta.'

@@ -1,6 +1,6 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
-@media (max-width: 768px) {
+@media (max-width: 1249px) {
     .form-contact {
         padding-top: 15px;
     }
@@ -8,7 +8,6 @@
 
 .form-contact {
     height: 31.9rem;
-    flex-grow: 1;
     flex-basis: 300px;
     position: sticky;
     top: 7rem;
@@ -24,7 +23,10 @@
 
 .form-contact h2 {
     position: relative;
-    padding: 0 0 10px 15px;
+    padding: 0 0 5px 0;
+    letter-spacing: 1px;
+    font-size: 20px;
+    line-height: 24px;
 }
 
 h6 {

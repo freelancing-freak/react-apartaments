@@ -3,12 +3,11 @@ import {Container} from "react-bootstrap";
 
 export const OfferDetailsContainer = styled(Container)`
   display: flex;
-  flex-wrap: wrap;
   gap: 2rem;
   max-width: 80%;
   margin: 7rem auto 3rem auto;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1249px) {
     display: inherit;
   }
 `;
