@@ -4,7 +4,6 @@ import {
     Nav,
     NavbarContainer,
     NavBtn,
-    NavBtnLink,
     NavItem,
     NavLinkR,
     NavLogo,
@@ -56,9 +55,7 @@ const Navbar = ({toggle, activePage}) => {
                                           className={activePage === '/contact' ? 'active' : ''}>Kontakt</NavLinkR>
                             </NavItem>
                         </NavMenu>
-                        <NavBtn>
-                            <NavBtnLink to='/login'>Login</NavBtnLink>
-                        </NavBtn>
+                        <NavBtn/>
                     </NavbarContainer>
                 </Nav>
             </IconContext.Provider>

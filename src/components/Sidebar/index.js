@@ -4,9 +4,7 @@ import {
     SidebarContainer,
     SidebarLink,
     SidebarMenu,
-    SidebarRoute,
-    SidebarWrapper,
-    SideBtnWrap
+    SidebarWrapper
 } from "./SidebarElements";
 
 const Sidebar = ({isOpen, toggle}) => {
@@ -21,9 +19,6 @@ const Sidebar = ({isOpen, toggle}) => {
                     <SidebarLink to='/about' onClick={toggle}>O nas</SidebarLink>
                     <SidebarLink to='/contact' onClick={toggle}>Kontakt</SidebarLink>
                 </SidebarMenu>
-                <SideBtnWrap>
-                    <SidebarRoute to='/login'>Login</SidebarRoute>
-                </SideBtnWrap>
             </SidebarWrapper>
         </SidebarContainer>
     );
