@@ -2,6 +2,8 @@ import {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import './index.css';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ContactForm = () => {
     const {
@@ -23,13 +25,31 @@ const ContactForm = () => {
                 message
             };
             axios.post('http://localhost:8080/api/notifications', notification)
-                .then(res => {
-                    // success toast
+                .then(() => {
+                    toast.success('Wysłano wiadomość!', {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
                 })
             reset();
             setDisabled(false);
         } catch (e) {
-            console.log(e);
+            toast.error('Coś poszło nie tak!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
             setDisabled(false);
         }
     };
@@ -102,6 +122,7 @@ const ContactForm = () => {
                                     <button className='submit-btn' disabled={disabled} type='submit'>
                                         Wyślij wiadomość
                                     </button>
+                                    <ToastContainer />
                                 </form>
                             </div>
                         </div>
