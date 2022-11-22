@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import './index.css';
+import axios from 'axios';
 
 const ContactForm = () => {
     const {
@@ -15,18 +16,21 @@ const ContactForm = () => {
         const {name, phoneNumber, subject, message} = data;
         try {
             setDisabled(true);
-            const templateParams = {
+            const notification = {
                 name,
-                phoneNumber,
                 subject,
+                phoneNumber,
                 message
             };
-            // TODO SEND EMAIL
+            axios.post('http://localhost:8080/api/notifications', notification)
+                .then(res => {
+                    // success toast
+                })
             reset();
-            // TODO Display success toast
             setDisabled(false);
         } catch (e) {
             console.log(e);
+            setDisabled(false);
         }
     };
 
@@ -62,7 +66,8 @@ const ContactForm = () => {
                                                    })} className='form-control formInput' placeholder='Numer telefonu'
                                             />
                                             {errors.phoneNumber && (
-                                                <span className='errorMessage'>Proszę wprowadzić poprawny numer telefonu</span>
+                                                <span
+                                                    className='errorMessage'>Proszę wprowadzić poprawny numer telefonu</span>
                                             )}
                                         </div>
                                     </div>
