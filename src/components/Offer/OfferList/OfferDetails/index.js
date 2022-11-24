@@ -16,44 +16,7 @@ import {
 
 const OfferDetails = ({apartment}) => {
 
-    const images = [
-        {
-            original: 'https://picsum.photos/id/1018/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1018/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1015/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1015/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1019/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1019/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1018/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1018/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1015/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1015/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1019/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1019/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1018/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1018/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1015/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1015/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1019/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1019/250/150/',
-        },
-    ];
+    const images = insertImages(apartment);
 
     const [scrollToTop, setScrollToTop] = useState(true);
     const [showMore, setShowMore] = useState(false);
@@ -134,6 +97,24 @@ const OfferDetails = ({apartment}) => {
             </OfferDetailsContainer>
         </>
     );
+}
+
+function insertImages(apartment) {
+    let images = [{
+        original: apartment.mainImage,
+        thumbnail: apartment.mainImage
+    }];
+    let tempImages = new Set([]);
+    for (let i = 0; i < apartment.images.length; i++) {
+        if (!tempImages.has(apartment.images[i])) {
+            tempImages.add(apartment.images[i]);
+            images.push({
+                original: apartment.images[i],
+                thumbnail: apartment.images[i]
+            });
+        }
+    }
+    return images;
 }
 
 export default OfferDetails;
