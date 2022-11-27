@@ -18,7 +18,7 @@ const OfferSection = ({id}) => {
 
     const fetchApartments = async (page) => {
         setLoading(true);
-        const res = await axios.get('http://localhost:8080/api/apartments?size=' + pageSize + '&page=' + page);
+        const res = await axios.get('https://apartments-prod.herokuapp.com/api/apartments?size=' + pageSize + '&page=' + page);
         setApartments(res.data['data']);
         let pagination = res.data['pagination'];
         setCurrentPage(pagination['pageNumber']);

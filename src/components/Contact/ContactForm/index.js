@@ -24,7 +24,7 @@ const ContactForm = () => {
                 phoneNumber,
                 message
             };
-            axios.post('http://localhost:8080/api/notifications', notification)
+            axios.post('https://apartments-prod.herokuapp.com/api/notifications', notification)
                 .then(() => {
                     toast.success('Wysłano wiadomość!', {
                         position: "top-center",

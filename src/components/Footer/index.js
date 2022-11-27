@@ -51,7 +51,7 @@ const Footer = () => {
                                 <Link to='/' onClick={toggleHome}>Oferta</Link>
                                 <Link to='/about'>O nas</Link>
                                 <Link to='/contact'>Kontakt</Link>
-                                <a href="http://localhost:8080" target="_blank">Logowanie</a>
+                                <a href="https://vaadin-apartments-prod.herokuapp.com" target="_blank">Logowanie</a>
                                 <a href="#">Polityka prywatności</a>
                             </p>
                             <p className="footer-company-name">Apartments © {new Date().getFullYear()} Wszystkie prawa zastrzeżone.</p>
