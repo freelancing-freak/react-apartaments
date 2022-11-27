@@ -34,6 +34,20 @@ const OfferSection = ({id}) => {
             .catch((error) => console.log(error))
     }
 
+    if (apartments.length === 0) {
+        return (
+            <div id={id}/>
+        );
+    }
+
+    if (totalPages === 1) {
+        return (
+            <div id={id}>
+                <OfferList apartments={apartments} loading={loading}/>
+            </div>
+        );
+    }
+
     return (
         <div id={id}>
             <div>
