@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {Container} from "react-bootstrap";
+import {MdKeyboardBackspace} from "react-icons/md";
 
 export const OfferDetailsContainer = styled(Container)`
   display: flex;
@@ -10,11 +11,31 @@ export const OfferDetailsContainer = styled(Container)`
   @media (max-width: 1249px) {
     display: inherit;
   }
+
+  @media (max-width: 767px) {
+    max-width: 95%;
+  }
 `;
 
 export const OfferDetailsContent = styled.section`
   max-width: 60rem;
   margin-bottom: 1rem;
+`;
+
+export const OfferDetailsBackBtn = styled.a`
+  color: black;
+  font-weight: bold;
+
+  &:hover {
+    color: #01bf71;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+`;
+
+export const ArrowLeft = styled(MdKeyboardBackspace)`
+  margin-left: 8px;
+  font-size: 30px;
 `;
 
 export const OfferDetailsTextHeader = styled.p`
@@ -62,11 +83,11 @@ export const OfferDetailsTag = styled.li`
 
 export const OfferDetailsLocationWrapper = styled.div`
   padding-bottom: 8px;
-  
+
   i {
     font-size: 20px;
   }
-  
+
   span {
     font-weight: bold;
   }

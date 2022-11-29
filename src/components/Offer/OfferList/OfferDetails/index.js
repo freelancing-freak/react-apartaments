@@ -3,6 +3,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import './styles.css';
 import ImageGallery from 'react-image-gallery';
 import {
+    ArrowLeft,
+    OfferDetailsBackBtn,
     OfferDetailsContainer,
     OfferDetailsContent,
     OfferDetailsDate,
@@ -35,6 +37,9 @@ const OfferDetails = ({apartment}) => {
         <>
             <OfferDetailsContainer id='wrapper'>
                 <OfferDetailsContent>
+                    <OfferDetailsBackBtn className='back-btn' onClick={() => window.history.back()}>
+                        <OfferDetailsTextHeader><ArrowLeft/> Powrót</OfferDetailsTextHeader>
+                    </OfferDetailsBackBtn>
                     {matches && <ImageGallery items={images}
                                               lazyload={true}
                                               showPlayButton={false}
