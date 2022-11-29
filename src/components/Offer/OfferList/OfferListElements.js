@@ -21,12 +21,14 @@ export const OfferCol = styled(Col)`
   padding: 10px;
   border-radius: 15px;
   overflow: hidden;
-  
-  &:hover {
-    transition: transform 0.2s ease-in-out;
-    transform: scale(1.1);
-    z-index: 3;
-    cursor: pointer;
+
+  @media (min-width: 992px) {
+    &:hover {
+      transition: transform 0.2s ease-in-out;
+      transform: scale(1.1);
+      z-index: 3;
+      cursor: pointer;
+    }
   }
 `;
 
@@ -51,7 +53,7 @@ export const OfferColHeader = styled.header`
 
 export const OfferLink = styled(Link)`
   color: black;
-  
+
   &:hover {
     color: #01bf71;
     transition: 0.3s ease-in-out;
