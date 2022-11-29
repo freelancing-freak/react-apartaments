@@ -13,7 +13,7 @@ const OfferDetailsPage = () => {
     }
 
     const location = useLocation();
-    const {apartment} = location.state;
+    const {apartment} = location.state || {};
 
     return (
         <>

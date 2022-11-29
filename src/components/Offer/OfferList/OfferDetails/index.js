@@ -4,7 +4,7 @@ import './styles.css';
 import ImageGallery from 'react-image-gallery';
 import {
     ArrowLeft,
-    OfferDetailsBackBtn,
+    OfferDetailsBackBtn, OfferDetailsBackLink,
     OfferDetailsContainer,
     OfferDetailsContent,
     OfferDetailsDate,
@@ -15,11 +15,13 @@ import {
     OfferDetailsTagWrapper,
     OfferDetailsTextHeader
 } from "./OfferDetailsElements";
+import axios from "axios";
+import {CircularProgress} from "@mui/material";
 
 const OfferDetails = ({apartment}) => {
 
-    const images = insertImages(apartment);
-
+    const [loading, setLoading] = useState(false);
+    const [fetchedApartment, setFetchedApartment] = useState(apartment);
     const [scrollToTop, setScrollToTop] = useState(true);
     const [showMore, setShowMore] = useState(false);
     const [matches, setMatches] = useState(window.matchMedia("(min-width: 768px)").matches)
@@ -27,17 +29,54 @@ const OfferDetails = ({apartment}) => {
         window.matchMedia("(min-width: 768px)").addEventListener('change', e => setMatches(e.matches));
     }, []);
 
-    const text = apartment.description;
-
     if (scrollToTop) {
         window.scrollTo({top: 0, behavior: 'instant'});
     }
+
+    if (fetchedApartment === undefined && !loading) {
+        setLoading(true);
+        let url = window.location.href;
+        let apartmentId = url.substring(url.lastIndexOf('/') + 1);
+        axios.get('https://apartments-prod.herokuapp.com/api/apartments/' + apartmentId).then(res => {
+            setFetchedApartment(res.data);
+            setLoading(false);
+        }).catch(() => {
+            setFetchedApartment('error');
+            setLoading(false);
+        })
+    }
+
+    if (fetchedApartment === 'error') {
+        return (
+            <>
+                <OfferDetailsContainer id='wrapper'>
+                    <OfferDetailsContent>
+                        <OfferDetailsBackLink to='/'>
+                            <OfferDetailsTextHeader><ArrowLeft/> Powrót</OfferDetailsTextHeader>
+                        </OfferDetailsBackLink>
+                        <OfferDetailsTextHeader>Nie znaleziono apartamentu</OfferDetailsTextHeader>
+                    </OfferDetailsContent>
+                </OfferDetailsContainer>
+            </>
+        );
+    }
+
+    if (fetchedApartment === undefined || loading) {
+        return <div style={{display: 'flex', justifyContent: 'center', margin: '150px 0 100px 0'}}>
+            <CircularProgress color="success"/>
+        </div>
+    }
+
+    apartment = fetchedApartment;
+
+    const images = insertImages(apartment);
+    const text = apartment.description;
 
     return (
         <>
             <OfferDetailsContainer id='wrapper'>
                 <OfferDetailsContent>
-                    <OfferDetailsBackBtn className='back-btn' onClick={() => window.history.back()}>
+                    <OfferDetailsBackBtn onClick={() => window.history.back()}>
                         <OfferDetailsTextHeader><ArrowLeft/> Powrót</OfferDetailsTextHeader>
                     </OfferDetailsBackBtn>
                     {matches && <ImageGallery items={images}
@@ -105,6 +144,9 @@ const OfferDetails = ({apartment}) => {
 }
 
 function insertImages(apartment) {
+    if (apartment === undefined) {
+        return;
+    }
     let images = [{
         original: apartment.mainImage,
         thumbnail: apartment.mainImage

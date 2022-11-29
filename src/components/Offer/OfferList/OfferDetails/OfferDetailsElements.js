@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {Container} from "react-bootstrap";
 import {MdKeyboardBackspace} from "react-icons/md";
+import {Link} from "react-router-dom";
 
 export const OfferDetailsContainer = styled(Container)`
   display: flex;
@@ -23,6 +24,17 @@ export const OfferDetailsContent = styled.section`
 `;
 
 export const OfferDetailsBackBtn = styled.a`
+  color: black;
+  font-weight: bold;
+
+  &:hover {
+    color: #01bf71;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+`;
+
+export const OfferDetailsBackLink = styled(Link)`
   color: black;
   font-weight: bold;
 
