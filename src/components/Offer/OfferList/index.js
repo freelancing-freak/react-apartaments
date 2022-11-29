@@ -1,16 +1,8 @@
 import React from 'react';
 import {OfferCol, OfferColFooter, OfferColHeader, OfferColImg, OfferContainer, OfferLink} from "./OfferListElements";
 import ResponsiveGoogleMapDialog from "../../shared/ResponsiveGoogleMapDialog";
-import {CircularProgress} from "@mui/material";
 
-const OfferList = ({apartments, loading}) => {
-
-    if (loading) {
-        return <div style={{display: 'flex', justifyContent: 'center', margin: '50px 0 50px 0'}}>
-            <CircularProgress color="success"/>
-        </div>
-    }
-
+const OfferList = ({apartments}) => {
     return <OfferContainer>
         {apartments.map(apartment => (
             <OfferCol key={apartment.id}>

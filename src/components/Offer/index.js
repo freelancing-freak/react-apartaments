@@ -2,6 +2,7 @@ import OfferList from "./OfferList";
 import {useEffect, useState} from "react";
 import axios from 'axios';
 import Pagination from "./Pagination";
+import {CircularProgress} from "@mui/material";
 
 const OfferSection = ({id}) => {
 
@@ -10,7 +11,7 @@ const OfferSection = ({id}) => {
     const [currentPage, setCurrentPage] = useState(0);
     const [totalElements, setTotalElements] = useState([]);
     const [totalPages, setTotalPages] = useState([]);
-    const [pageSize] = useState(12);
+    const [pageSize] = useState(36);
 
     useEffect(() => {
         fetchApartments(currentPage).catch((error) => console.log(error))
@@ -25,6 +26,12 @@ const OfferSection = ({id}) => {
         setTotalElements(pagination['totalElements']);
         setTotalPages(pagination['totalPages']);
         setLoading(false);
+    }
+
+    if (loading) {
+        return <div style={{display: 'flex', justifyContent: 'center', margin: '50px 0 50px 0'}}>
+            <CircularProgress color="success"/>
+        </div>
     }
 
     const paginate = pageNumber => {
@@ -43,7 +50,7 @@ const OfferSection = ({id}) => {
     if (totalPages === 1) {
         return (
             <div id={id}>
-                <OfferList apartments={apartments} loading={loading}/>
+                <OfferList apartments={apartments}/>
             </div>
         );
     }
@@ -54,7 +61,7 @@ const OfferSection = ({id}) => {
                 <div style={{marginTop: '80px', marginBottom: '-80px'}}>
                     <Pagination totalPages={totalPages} currentPage={currentPage} paginate={paginate}/>
                 </div>
-                <OfferList apartments={apartments} loading={loading}/>
+                <OfferList apartments={apartments}/>
                 <div>
                     <Pagination totalPages={totalPages} currentPage={currentPage} paginate={paginate}/>
                 </div>
