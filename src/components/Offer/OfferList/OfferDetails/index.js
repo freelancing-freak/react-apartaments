@@ -136,7 +136,7 @@ const OfferDetails = ({apartment}) => {
                                                showPlayButton={false}
                                                autoPlay={true}
                                                thumbnailPosition={'bottom'}/>}
-                    <OfferDetailsDate>Dodane 28 października 2022</OfferDetailsDate>
+                    <OfferDetailsDate>Dodane {apartment.createdDate}</OfferDetailsDate>
                     <OfferDetailsPrice>{apartment.price} €</OfferDetailsPrice>
                     <OfferDetailsTextHeader>{apartment.name}</OfferDetailsTextHeader>
                     <OfferDetailsLocationWrapper>
