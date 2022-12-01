@@ -21,7 +21,7 @@ export const GoogleMapLocationHref = styled.a`
 
 export const GoogleMapDialog = styled(Dialog)`
   @media (max-width: 992px) {
-    height: 50% !important;
+    height: 55% !important;
     top: 25% !important;
   }
 `;
