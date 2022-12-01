@@ -17,21 +17,68 @@ import {
 } from "./OfferDetailsElements";
 import axios from "axios";
 import {CircularProgress} from "@mui/material";
+import {useForm} from "react-hook-form";
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const OfferDetails = ({apartment}) => {
 
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: {errors}
+    } = useForm();
+
+    const onSubmit = async (data) => {
+        const {apartmentId, name, phoneNumber, subject, message} = data;
+        try {
+            setDisabled(true);
+            const notification = {
+                apartmentId,
+                name,
+                subject,
+                phoneNumber,
+                message
+            };
+            axios.post('https://apartments-prod.herokuapp.com/api/notifications', notification)
+                .then(() => {
+                    toast.success('Wysłano wiadomość!', {
+                        position: "bottom-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                })
+            reset();
+            setDisabled(false);
+        } catch (e) {
+            toast.error('Coś poszło nie tak!', {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            setDisabled(false);
+        }
+    };
+
     const [loading, setLoading] = useState(false);
+    const [disabled, setDisabled] = useState(false);
     const [fetchedApartment, setFetchedApartment] = useState(apartment);
-    const [scrollToTop, setScrollToTop] = useState(true);
     const [showMore, setShowMore] = useState(false);
     const [matches, setMatches] = useState(window.matchMedia("(min-width: 768px)").matches)
     useEffect(() => {
         window.matchMedia("(min-width: 768px)").addEventListener('change', e => setMatches(e.matches));
     }, []);
-
-    if (scrollToTop) {
-        window.scrollTo({top: 0, behavior: 'instant'});
-    }
 
     if (fetchedApartment === undefined && !loading) {
         setLoading(true);
@@ -113,7 +160,6 @@ const OfferDetails = ({apartment}) => {
                                 <br/>
                                 <br/>
                                 <OfferDetailsShowMoreButton onClick={() => {
-                                    setScrollToTop(false);
                                     setShowMore(!showMore);
                                 }}>
                                     {showMore ? 'Skróć opis' : 'Zobacz więcej'}
@@ -130,13 +176,51 @@ const OfferDetails = ({apartment}) => {
                             style={{border: '0'}} allowFullScreen/>
                 </OfferDetailsContent>
                 <aside className="form-contact">
-                    <h2>Skontaktuj się</h2>
-                    <hr/>
-                    <input type="text" className="field" placeholder="Imię"/>
-                    <input type="text" className="field" placeholder="Telefon"/>
-                    <textarea placeholder="Wiadomość" defaultValue='Dzień dobry, zainteresowała mnie ta oferta.'
-                              className="field"></textarea>
-                    <button className="btn">Wyślij</button>
+                    <form onSubmit={handleSubmit(onSubmit)} noValidate>
+                        <h2>Skontaktuj się</h2>
+                        <hr/>
+                        <input hidden={true} name='apartmentId'
+                               defaultValue={apartment.id} {...register('apartmentId', {
+                            required: true
+                        })}/>
+                        <input hidden={true} name='subject'
+                               defaultValue={'WYBRANE OGŁOSZENIE'} {...register('subject', {
+                            required: true
+                        })}/>
+                        <input type='text' name='name'
+                               {...register('name', {
+                                   required: {
+                                       value: true,
+                                       message: 'Proszę wprowadzić swoję imię'
+                                   },
+                                   maxLength: {
+                                       value: 30,
+                                       message: 'Maksymalny rozmiar pola wynosi 30 znaków'
+                                   }
+                               })} className='field' placeholder='Imię'
+                        />
+                        {errors.name && <span className='errorMessage'>{errors.name.message}</span>}
+                        <input type='tel' name='phoneNumber'
+                               {...register('phoneNumber', {
+                                   required: true,
+                                   pattern: /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g
+                               })} className='field' placeholder='Numer telefonu'
+                        />
+                        {errors.phoneNumber && (
+                            <span
+                                className='errorMessage'>Proszę wprowadzić poprawny numer telefonu</span>
+                        )}
+                        <textarea rows={3} name='message'
+                                  {...register('message', {
+                                      required: true
+                                  })} className='field' placeholder='Wiadomość'
+                                  defaultValue='Dzień dobry, zainteresowała mnie ta oferta.'/>
+                        {errors.message && <span className='errorMessage'>Proszę wprowadzić wiadomość</span>}
+                        <button className='btn' disabled={disabled} type='submit'>
+                            Wyślij wiadomość
+                        </button>
+                        <ToastContainer/>
+                    </form>
                 </aside>
             </OfferDetailsContainer>
         </>

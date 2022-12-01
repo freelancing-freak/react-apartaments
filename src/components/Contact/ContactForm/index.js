@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import './index.css';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ContactForm = () => {
@@ -27,7 +27,7 @@ const ContactForm = () => {
             axios.post('https://apartments-prod.herokuapp.com/api/notifications', notification)
                 .then(() => {
                     toast.success('Wysłano wiadomość!', {
-                        position: "top-center",
+                        position: "bottom-center",
                         autoClose: 5000,
                         hideProgressBar: false,
                         closeOnClick: true,
@@ -41,7 +41,7 @@ const ContactForm = () => {
             setDisabled(false);
         } catch (e) {
             toast.error('Coś poszło nie tak!', {
-                position: "top-center",
+                position: "bottom-center",
                 autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -115,14 +115,15 @@ const ContactForm = () => {
                                                   {...register('message', {
                                                       required: true
                                                   })} className='form-control formInput' placeholder='Wiadomość'/>
-                                            {errors.message && <span className='errorMessage'>Proszę wprowadzić wiadomość</span>}
+                                            {errors.message &&
+                                                <span className='errorMessage'>Proszę wprowadzić wiadomość</span>}
                                         </div>
                                     </div>
 
                                     <button className='submit-btn' disabled={disabled} type='submit'>
                                         Wyślij wiadomość
                                     </button>
-                                    <ToastContainer />
+                                    <ToastContainer/>
                                 </form>
                             </div>
                         </div>
