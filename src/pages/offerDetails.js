@@ -1,6 +1,6 @@
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
-import {useState} from "react";
+import {useLayoutEffect, useState} from "react";
 import Footer from "../components/Footer";
 import OfferDetails from "../components/Offer/OfferList/OfferDetails";
 import {useLocation} from "react-router-dom";
@@ -11,6 +11,10 @@ const OfferDetailsPage = () => {
     const toggle = () => {
         setIsOpen(!isOpen)
     }
+
+    useLayoutEffect(() => {
+        window.scrollTo({top: 0, behavior: 'instant'})
+    });
 
     const location = useLocation();
     const {apartment} = location.state || {};
