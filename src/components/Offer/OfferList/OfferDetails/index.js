@@ -129,12 +129,12 @@ const OfferDetails = ({apartment}) => {
                     {matches && <ImageGallery items={images}
                                               lazyload={true}
                                               showPlayButton={false}
-                                              autoPlay={true}
+                                              autoPlay={false}
                                               thumbnailPosition={'right'}/>}
                     {!matches && <ImageGallery items={images}
                                                lazyload={true}
                                                showPlayButton={false}
-                                               autoPlay={true}
+                                               autoPlay={false}
                                                thumbnailPosition={'bottom'}/>}
                     <OfferDetailsDate>Dodane {apartment.createdDate}</OfferDetailsDate>
                     <OfferDetailsPrice>{apartment.price} €</OfferDetailsPrice>
